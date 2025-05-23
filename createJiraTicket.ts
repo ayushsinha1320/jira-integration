@@ -11,10 +11,10 @@ dotenv.config();
  * @param {string} [issueType='Task'] - The type of the issue (e.g., 'Bug', 'Epic')
  * @param {string} [attachmentPath] - Path to the file to attach
  */
-export async function createJiraTicket(summary, descriptionText, issueType = 'Task', attachmentPath) {
+export async function createJiraTicket(summary: string, descriptionText: string, issueType: string = 'Task', attachmentPath?: string) {
   const jiraUrl = process.env.JIRA_URL;
   const auth = Buffer.from(`${process.env.JIRA_EMAIL}:${process.env.JIRA_API_TOKEN}`).toString('base64');
-  const projectId = 'ECS'; // Replace with your actual project key
+  const projectId = 'ECS'; 
 
   const data = {
     fields: {

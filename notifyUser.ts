@@ -10,7 +10,7 @@ import { createJiraTicket } from './createJiraTicket.js';
  * @param {string} subject - The email subject
  * @param {string} textBody - The email body
  */
-export async function notifyUser(issueId, accountId, subject, textBody) {
+export async function notifyUser(issueId: string, accountId: string, subject: string, textBody: string) {
   const jiraUrl = process.env.JIRA_URL;
   const auth = Buffer.from(`${process.env.JIRA_EMAIL}:${process.env.JIRA_API_TOKEN}`).toString('base64');
 
@@ -51,7 +51,7 @@ export async function notifyUser(issueId, accountId, subject, textBody) {
  * @param {string} [accountId] - The Jira user account ID to notify (optional, will use env if not provided)
  * @param {string} [issueType='Task'] - The type of the issue
  */
-export async function createTicketAndNotify(summary, description, accountId, issueType = 'Task') {
+export async function createTicketAndNotify(summary: string, description: string, accountId?: string, issueType = 'Task') {
   try {
     const notifyAccountId = accountId || process.env.JIRA_ACCOUNT_ID;
     if (!notifyAccountId) {

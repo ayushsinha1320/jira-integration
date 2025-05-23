@@ -1,8 +1,10 @@
 {
   "name": "jira-integration",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,6 +19,11 @@
     "playwright": "^1.52.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.52.0"
+    "@playwright/test": "^1.52.0",
+    "typescript": "^5.4.0",
+    "ts-node": "^10.9.1",
+    "@types/node": "^20.11.30",
+    "@types/form-data": "^2.5.0",
+    "@types/axios": "^0.14.0"
   }
 }

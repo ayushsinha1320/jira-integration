@@ -2,18 +2,16 @@ import { test, expect } from '@playwright/test';
 import { createJiraTicket } from '../createJiraTicket.js';
 
 // Helper to strip ANSI color codes
-function stripAnsi(str) {
+function stripAnsi(str: string): string {
   return str.replace(/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g, '');
 }
 
 // Helper to remove '// Object.is equality' from the error message
-function removeObjectIsEquality(str) {
+function removeObjectIsEquality(str: string): string {
   return str.replace(/ *\/\/ Object\.is equality/g, '');
 }
 
-// This test will intentionally fail
-
-test('Intentional failure to trigger Jira ticket', async () => {
+test('Asserts that 1 is not equal to 2', async () => {
   try {
     expect(1).toBe(2);
   } catch (error) {
